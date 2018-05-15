@@ -22,7 +22,7 @@
 				echo $e->getMessage(); exit;
 			}
 		}
-		public function query($sql) {
+		public function query($sql, $row = false) {
 			$res = Array();
 			$res['count'] = 0;
 			try {
@@ -38,6 +38,7 @@
 						}
 					}
 					$res['match'] = $exec->fetchAll(PDO::FETCH_ASSOC);
+					if(is_numeric($row)) return $res['match'][$row][$res['cols'][0]];
 				}
 			}
 			catch(PDOException $e) {
