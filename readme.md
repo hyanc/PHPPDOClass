@@ -5,6 +5,9 @@ PHP Data Object Class. Query method return an associative array:
 - Cols (return columns data)
 - Error & SQL
 
+
+Numeric second parameter return content of one cell result
+
 ### Sample 1. Basic print_r output
 ```PHP
 include('pdo.php');
@@ -58,4 +61,14 @@ foreach($q['match'] as $rows => $row) {
 	echo "</tr>";
 }
 echo "</table>";
+```
+
+### Sample 3. One cell result
+```PHP
+include('pdo.php');
+$sql = new SQL();
+
+//second parameter is row number
+echo $sql->query("select 'frog' as animal, 'hop' as ability",0);
+// frog
 ```
