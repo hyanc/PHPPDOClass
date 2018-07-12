@@ -29,7 +29,7 @@
 				$exec = $this->link->query($sql);
 				$res['sql'] = $sql;
 				$res['count'] = $exec->rowCount();
-				if(substr(preg_replace("/\s+\W+/",'',strtolower($sql)),0,6)=="select") {
+				if(substr(preg_replace("/\s+\W+/",'',strtolower(trim($sql))),0,6)=="select") {
 					$res['cols'] = Array();
 					if($exec->columnCount() > 0) {
 						foreach(range(0, $exec->columnCount() - 1) as $columns) {
