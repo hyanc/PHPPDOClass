@@ -6,7 +6,7 @@ PHP Data Object Class. Query method return an associative array:
 - Error & SQL
 
 
-Numeric second parameter return content of one cell result
+*Numeric second parameter return content of one cell result
 
 ### Sample 1. Basic print_r output
 ```PHP
@@ -71,4 +71,13 @@ $sql = new SQL();
 //second parameter is row number
 echo $sql->query("select 'frog' as animal, 'hop' as ability",0);
 // frog
+```
+
+### Sample 4. Error handling
+```PHP
+include('pdo.php');
+$sql = new SQL();
+
+$q = $sql->query("select 'frog as animal, 'hop' as ability");
+if(isset($q['error'])) echo $q['error'];
 ```
