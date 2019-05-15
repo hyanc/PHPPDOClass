@@ -1,18 +1,17 @@
 <?php
-	class SQL {
+	class Database {
 		protected $db = array(
 			'rdbms' => 'mysql',
 			'host' => '127.0.0.1',
 			'port' => 3306,
 			'username' => 'dbUser',
-			'password' => 'dbPass',
-			'name' => 'dbName'
+			'password' => 'dbPass'
 		);
 		var $link;
-		function __construct() {
+		function __construct($dbName) {
 			try {
 				$this->link = new PDO(
-					$this->db['rdbms'].":host=".$this->db['host'].";dbname=".$this->db['name'].";port=".$this->db['port'],
+					$this->db['rdbms'].":host=".$this->db['host'].";dbname=".$dbName.";port=".$this->db['port'],
 					$this->db['username'],
 					$this->db['password']
 				);
