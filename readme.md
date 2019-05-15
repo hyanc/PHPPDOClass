@@ -1,5 +1,5 @@
 # PHPPDOClass
-PHP Data Object Class. Query method return an associative array:
+PHP Data Object Class. Query method return associative array:
 - Match (return all data in array)
 - Count (return number of rows data)
 - Cols (return columns data)
