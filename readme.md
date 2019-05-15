@@ -8,11 +8,14 @@ PHP Data Object Class. Query method return an associative array:
 
 *Numeric second parameter return content of one cell result
 
-### Sample 1. Basic print_r output
+### Initialize
 ```PHP
 include('pdo.php');
 $sql = new Database('dbName');
+```
 
+### Sample 1. Basic print_r output
+```PHP
 $q = $sql->query("select 'frog' as animal, 'hop' as ability");
 
 print_r($q);
@@ -44,9 +47,6 @@ Array
 
 ### Sample 2. HTML table layout
 ```PHP
-include('pdo.php');
-$sql = new SQL();
-
 $q = $sql->query("select 'frog' as animal, 'hop' as ability");
 
 echo "<table>";
@@ -65,9 +65,6 @@ echo "</table>";
 
 ### Sample 3. One cell result
 ```PHP
-include('pdo.php');
-$sql = new SQL();
-
 //second parameter is row number
 echo $sql->query("select 'frog' as animal, 'hop' as ability",0);
 // frog
@@ -75,9 +72,6 @@ echo $sql->query("select 'frog' as animal, 'hop' as ability",0);
 
 ### Sample 4. Error handling
 ```PHP
-include('pdo.php');
-$sql = new SQL();
-
 $q = $sql->query("select 'frog as animal, 'hop' as ability");
 if(isset($q['error'])) echo $q['error'];
 ```
