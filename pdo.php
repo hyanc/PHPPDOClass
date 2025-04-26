@@ -25,7 +25,7 @@
 			$res = Array();
 			$res['count'] = 0;
 			try {
-				if(!preg_match('/limit\s+\d+/i', $sql)) {
+				if(preg_match('/^\s*select\b/i', $sql) && !preg_match('/limit\s+\d+/i', $sql)) {
 					$sql = $sql." limit 300";
 				}
 				$exec = $this->link->query($sql);
